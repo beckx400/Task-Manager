@@ -1,0 +1,26 @@
+[
+  {
+    "tech" : "html",
+    "toDo": ["Gain a better understanding of new symantec tags"]
+  },
+  {
+    "tech" : "css",
+    "toDo": ["Work on understanding of box-model", "Learn to efficiently vertically align content", "Practice flex-box"]
+  },
+  {
+    "tech" : "angular",
+    "toDo": ["Read the documentation", "Understand Angular animate in place of jQuery", "Read the book Joel", "Build a functioning Angular app"]
+  },
+  {
+    "tech" : "mongodb",
+    "toDo": ["Attend upcoming MongoDB lectures at Prime"]
+  },
+  {
+    "tech" : "node",
+    "toDo": ["Work on building file structure around Node in Webstorm", "Learn to make better ajax/http calls"]
+  },
+  {
+    "tech" : "express",
+    "toDo": ["Clean up .get calls", "Practice building in router functionality"]
+  }
+]
