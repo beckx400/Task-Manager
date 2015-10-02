@@ -31,30 +31,34 @@ app.get("/tech", function(req, res){
 });
 
 //get to-do list items
-//app.get("/:techName?", function(req, res){
-//
-//    var techName = req.params.techName;
-//
-//    console.log(techName);
-//
-//    fs.readFile(fileLocation, function(err, data){
-//        var obj = JSON.parse(data);
-//
-//        var query = getJsonQueryString("techName", techName);
-//
-//        if(techName){
-//            var technology = jsonquery(query, {data: obj});
-//            res.json(technology);
-//        } else {
-//            res.send(obj);
-//        }
-//    });
-//});
-//
-//function getJsonQueryString(key, value){
-//    var queryString = '[' + key + '=' + value + ']';
-//    console.log('Generate query string: ' + queryString);
-//    return queryString;
-//};
+app.get("/:techName?", function(req, res){
+
+    var techName = req.params.techName;
+
+    console.log(techName);
+
+    fs.readFile(fileLocation, function(err, data){
+        var obj = JSON.parse(data);
+
+        var query = getJsonQueryString("techName", techName);
+
+        if(techName){
+            var technology = jsonquery(query, {data: obj});
+            res.json(technology);
+        } else {
+            res.send(obj);
+        }
+    });
+});
+
+//get JsonQueryString
+function getJsonQueryString(key, value){
+    var queryString = '[' + key + '=' + value + ']';
+    console.log('Generate query string: ' + queryString);
+    return queryString;
+};
 
 //ADD IN A POST AND CONSOLE LOG WHATEVER COMES OUT
+app.post("/add", function(req, res){
+    console.log(res);
+})

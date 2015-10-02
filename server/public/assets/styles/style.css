@@ -1,5 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900,300);
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+h1, h2 {
+    font-weight: 900;
+}
 li{
     list-style-type: none;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+form {
+    border-bottom: 1px solid black;
 }
 .mainContainer{
     position: absolute;
@@ -7,18 +22,35 @@ li{
     top: 50%;
     transform: translate(-50%, -50%);
 
-    width: 80%;
+    width: 60%;
     height: 80%;
     text-align: center;
 }
 .techLinks {
-    text-align: center;
-    display: inline;
     padding: 5px 10px;
     margin: 0;
     border: 1px solid black;
     cursor: pointer;
+    font-weight: 300;
 }
 .taskContainer {
     border: 1px solid black;
+}
+.techName {
+    border-bottom: 1px solid black;
+}
+.toDoItems{
+    border-bottom: 1px solid black;
+}
+.strike{
+    text-decoration: line-through;
+    font-style: italic;
+    opacity: 0.5;
+}
+.remove{
+    display: none;
+}
+.inProgress {
+    color: green;
+    font-weight: 700;
 }
