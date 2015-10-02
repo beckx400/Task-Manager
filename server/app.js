@@ -31,18 +31,18 @@ app.get("/tech", function(req, res){
 });
 
 //get to-do list items
-//app.get("/:tech?", function(req, res){
+//app.get("/:techName?", function(req, res){
 //
-//    var tech = req.params.tech;
+//    var techName = req.params.techName;
 //
-//    console.log(tech);
+//    console.log(techName);
 //
 //    fs.readFile(fileLocation, function(err, data){
 //        var obj = JSON.parse(data);
 //
-//        var query = getJsonQueryString("tech", tech);
+//        var query = getJsonQueryString("techName", techName);
 //
-//        if(tech){
+//        if(techName){
 //            var technology = jsonquery(query, {data: obj});
 //            res.json(technology);
 //        } else {

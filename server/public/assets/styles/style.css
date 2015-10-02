@@ -1,0 +1,24 @@
+li{
+    list-style-type: none;
+}
+.mainContainer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+.techLinks {
+    text-align: center;
+    display: inline;
+    padding: 5px 10px;
+    margin: 0;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.taskContainer {
+    border: 1px solid black;
+}

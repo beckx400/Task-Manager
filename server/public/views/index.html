@@ -14,50 +14,58 @@
 </head>
 <body>
     <main>
-        <div class="name">
-            <h1>Dave Beck</h1>
-        </div>
 
         <div class="mainContainer" ng-controller="MainController">
+
+            <div class="name">
+                <h1>Dave Beck</h1>
+            </div>
 
             <!--Header and links here within container-->
             <div class="header">
                 <ul>
-                    <li class="techLinks" ng-repeat="tech in techList">{{tech}}</li>
+                    <li ng-click="getTasks($event)" class="techLinks" ng-repeat="tech in techList" id='{{tech}}'>{{tech}}</li>
                 </ul>
             </div>
 
-            <!--Tech name goes here-->
-            <div class="techName">
-                <!--<h2>add tech name here with angular</h2>-->
+            <!--Placeholder for task container-->
+            <div class="taskContainer placeholder" ng-hide="technology.techName">
+                <h2>Task Master</h2>
             </div>
 
-            <div class="newItem">
-                <form>
-                    <input type="text" placeholder="Add a task" ng-model="newTask">
-                    <input type="submit" value="Submit" ng-click="add(newTask)">
-                </form>
-            </div>
-            <!--List out to-do points-->
-            <div class="toDoList">
-                <ul>
-                    <li class="toDoItems" ng-repeat="toDo in techToDo">{{toDo}}
-                        <div class="buttonsContainer">
-                            <button class="inProgress">In Progress</button>
-                            <button class="complete">Complete Task</button>
-                            <button class="edit">Edit Task</button>
-                            <button class="remove">Remove Task</button>
-                        </div>
-                    </li>
-                    <li class="newItems">{{newTask}}
-                        <div class="buttonsContainer">
-                            <button class="inProgress">In Progress</button>
-                            <button class="complete">Complete Task</button>
-                            <button class="edit">Edit Task</button>
-                            <button class="remove">Remove Task</button>
-                        </div>
-                    </li>
-                </ul>
+            <div class="taskContainer" ng-show="technology.techName">
+                <!--Tech name goes here-->
+                <div class="techName">
+                    <h2>{{technology.techName}}</h2>
+                </div>
+
+                <div class="newItem">
+                    <form>
+                        <input type="text" placeholder="Add a task" ng-model="newTask">
+                        <input type="submit" value="Submit" ng-click="add(newTask)">
+                    </form>
+                </div>
+                <!--List out to-do points-->
+                <div class="toDoList">
+                    <ul>
+                        <li class="toDoItems" ng-repeat="toDo in technology.toDo">{{toDo}}
+                            <div class="buttonsContainer">
+                                <button class="inProgress">In Progress</button>
+                                <button class="complete">Complete Task</button>
+                                <button class="edit">Edit Task</button>
+                                <button class="remove">Remove Task</button>
+                            </div>
+                        </li>
+                        <li class="toDoItems">{{newTask}}
+                            <div class="buttonsContainer">
+                                <button class="inProgress">In Progress</button>
+                                <button class="complete">Complete Task</button>
+                                <button class="edit">Edit Task</button>
+                                <button class="remove">Remove Task</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>
