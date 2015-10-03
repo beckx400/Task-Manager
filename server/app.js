@@ -2,6 +2,7 @@
  * Created by Dave on 10/2/15.
  */
 var express = require('express');
+var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var jsonquery = require('json-query');
@@ -60,5 +61,9 @@ function getJsonQueryString(key, value){
 
 //ADD IN A POST AND CONSOLE LOG WHATEVER COMES OUT
 app.post("/add", function(req, res){
-    console.log(res);
+    console.log(req.body.task);
 })
+
+
+app.use(bodyParser.json());
+module.exports = app;

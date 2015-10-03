@@ -5,6 +5,9 @@ var app = angular.module('myApp', []);
 
 app.controller("MainController", ['$scope', '$http', function($scope, $http){
     $scope.newTask;
+    $scope.status = {
+        isopen: false
+    };
 //Get header links JSON
     $http.get("/tech").then(function(response){
         $scope.techList = response.data;
@@ -14,6 +17,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
 //Get JSON data for stored to-do's
     $scope.getTasks = function(event){
         console.log(event.target.id);
+        $(".mainMenu").children('ul').slideUp('200');
         $http.get("/" + event.target.id).then(function(response){
             $scope.technology = response.data.value;
             return response.data.value;
@@ -23,12 +27,13 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
 //Post new task to server
     $scope.add = function(newTask){
         $http.post('/add', newTask);
-
         $scope.newTask = null;
     }
-
-//Remove a task function
-    $scope.taskRemove = function(event){
-        event.target.parentElement.parentElement.remove();
-    };
 }]);
+
+$(document).ready(function(){
+    $('.mainMenu').children('h3').on('click', function() {
+        $(".mainMenu").children('ul').slideToggle('slow');
+        $("h1").slideUp('slow');
+    });
+});

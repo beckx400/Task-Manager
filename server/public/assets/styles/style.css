@@ -1,10 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900,300);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;;
     font-weight: 300;
 }
 h1, h2 {
-    font-weight: 900;
+    font-weight: 700;
+}
+h1{
+    margin-top: 5px;
+    color: #2e2e2e;
+}
+h3{
+    cursor: pointer;
 }
 li{
     list-style-type: none;
@@ -15,36 +22,90 @@ ul{
 }
 form {
     border-bottom: 1px solid black;
+    padding: 5px 0;
 }
-.mainContainer{
-    width: 600px;
+label{
+    font-size:10px;
+    cursor: pointer;
+}
+label:hover{
+    font-size: 15px;
+}
+section{
+    box-shadow: 10px 13px 19px 0px rgba(0,0,0,0.75);
+    border: 1px solid #8c8c8c;
+    border-radius: 2%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 80%;
     text-align: center;
+    overflow: scroll;
 }
+input{
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+}
+input[type=submit]{
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height:25px;
+    background-color: #8A4A4A;
+}
+
+/*Header links*/
 .techLinks {
     padding: 5px 10px;
     margin: 0;
-    border: 1px solid black;
     cursor: pointer;
-    font-weight: 300;
+    opacity: 0.7;
+    font-size: 25px;
 }
-.taskContainer {
-    border: 1px solid black;
+.techLinks:hover{
+    font-size: 30px;
+    opacity: 1;
+    font-weight: 400;
+    color: #722929;
 }
-.techName {
-    border-bottom: 1px solid black;
+.techLinks:last-child{
+    padding-bottom: 10px;
+}
+.menuSelect{
+    font-size:10px;
+    color: #8A4A4A;
+    transition: all 0.3s ease;
+}
+.menuSelect:hover{
+    font-size: 30px;
+    padding: 2px;
+    margin: 3px;
+}
+/*Task List*/
+.techName h3{
+    font-size: 40px;
+    margin: 5px;
+    padding: 5px;
 }
 .toDoItems{
-    border-bottom: 1px solid black;
+    padding: 30px 10px;
+    border-bottom: 1px solid lightgray;
+    font-size: 20px;
 }
+/*Modular classes for ng-class*/
 .strike{
     text-decoration: line-through;
     font-style: italic;
     opacity: 0.5;
 }
-.remove{
+.remove, .subMenu{
     display: none;
 }
 .inProgress {
-    color: green;
+    color: #79A679;
     font-weight: 700;
 }

@@ -8,7 +8,7 @@
     "toDo": ["Work on understanding of box-model", "Learn to efficiently vertically align content", "Practice flex-box"]
   },
   {
-    "techName" : "Angular",
+    "techName" : "Angular.js",
     "toDo": ["Read the documentation", "Understand Angular animate in place of jQuery", "Read the book Joel", "Build a functioning Angular app"]
   },
   {
@@ -22,5 +22,9 @@
   {
     "techName" : "Express",
     "toDo": ["Clean up .get calls", "Practice building in router functionality"]
+  },
+  {
+    "techName" : "jQuery",
+    "toDo": ["Work on keyword 'this'", "Learn to target dynamically generated content"]
   }
 ]

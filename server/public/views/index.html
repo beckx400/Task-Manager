@@ -7,67 +7,67 @@
     <link href="/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 
-    <script src="/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/vendor/angular/angular.min.js.map"></script>
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/assets/scripts/app.min.js"></script>
 
 </head>
 <body>
     <main>
 
-        <div class="mainContainer text-center" ng-controller="MainController">
+        <div class="mainContainer" ng-controller="MainController">
 
-            <div class="name">
-                <h1>Dave Beck</h1>
-            </div>
-
-            <!--Header and links here within container-->
-            <div class="header">
-                <ul>
-                    <li ng-click="getTasks($event)" class="techLinks" ng-repeat="tech in techList" id='{{tech}}'>{{tech}}</li>
-                </ul>
-            </div>
-
-            <!--Placeholder for task container-->
-            <div class="taskContainer placeholder" ng-hide="technology.techName">
-                <h2>Task Master</h2>
-            </div>
-
-            <div class="taskContainer" ng-show="technology.techName">
-                <!--Tech name goes here-->
-                <div class="techName">
-                    <h2>{{technology.techName}}</h2>
+            <section>
+                <div class="name">
+                    <h1>Task List</h1>
                 </div>
 
-                <div class="newItem">
-                    <form>
-                        <input id="newText" type="text" placeholder="Add a task" ng-model="newTask">
-                        <input type="submit" value="Submit" ng-click="add(newTask)">
-                    </form>
-                </div>
-                <!--List out to-do points-->
-                <div class="toDoList">
-                    <ul>
-                        <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in technology.toDo">{{toDo}}
-                            <div class="buttonsContainer">
-                                <label><input type="checkbox" ng-model="progress">In Progress</label>
-                                <label><input type="checkbox" ng-model="complete.checked">Task Complete</label>
-                                <label><input type="checkbox" ng-model="remove.checked">Remove Task</label>
-                                <!--<button class="edit" ng-click="taskEdit($event)">Edit Task</button>-->
-                            </div>
-                        </li>
-                        <li class="toDoItems" ng-class="{'strike': new.complete.checked, 'remove': new.remove.checked, 'inProgress': new.progress}" ng-show="newTask">{{newTask}}
-                            <div class="buttonsContainer">
-                                <label><input type="checkbox" ng-model="new.progress">In Progress</label>
-                                <label><input type="checkbox" ng-model="new.complete.checked">Task Complete</label>
-                                <label><input type="checkbox" ng-model="new.remove.checked">Remove Task</label>
-                            </div>
-                        </li>
+                <!--Header and links here within container-->
+                <div class="header">
+                    <ul class="mainMenu">
+                        <h3 class="menuSelect">Technologies</h3>
+                        <ul class="subMenu">
+                            <li ng-click="getTasks($event)" class="techLinks" ng-repeat="tech in techList" id='{{tech}}'>{{tech}}</li>
+                        </ul>
                     </ul>
                 </div>
-            </div>
 
+
+                <div class="taskContainer" ng-show="technology.techName">
+                    <!--Tech name goes here-->
+                    <div class="techName">
+                        <h3>{{technology.techName}}</h3>
+                    </div>
+
+                    <div class="newItem">
+                        <form>
+                            <input id="newText" type="text" placeholder="Add a task" ng-model="newTask">
+                            <input type="submit" value="Submit" ng-click="add(newTask)">
+                        </form>
+                    </div>
+                    <!--List out to-do points-->
+                    <div class="toDoList">
+                        <ul>
+                            <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in technology.toDo">{{toDo}}
+                                <div class="buttonsContainer">
+                                    <label><input type="checkbox" ng-model="progress">In Progress</label>
+                                    <label><input type="checkbox" ng-model="complete.checked">Task Complete</label>
+                                    <label><input type="checkbox" ng-model="remove.checked">Remove Task</label>
+                                    <!--<button class="edit" ng-click="taskEdit($event)">Edit Task</button>-->
+                                </div>
+                            </li>
+                            <li class="toDoItems" ng-class="{'strike': new.complete.checked, 'remove': new.remove.checked, 'inProgress': new.progress}" ng-show="newTask">{{newTask}}
+                                <div class="buttonsContainer">
+                                    <label><input type="checkbox" ng-model="new.progress">In Progress</label>
+                                    <label><input type="checkbox" ng-model="new.complete.checked">Task Complete</label>
+                                    <label><input type="checkbox" ng-model="new.remove.checked">Remove Task</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
         </div>
     </main>
 
