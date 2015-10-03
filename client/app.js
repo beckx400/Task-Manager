@@ -16,7 +16,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
 
 //Get JSON data for stored to-do's
     $scope.getTasks = function(event){
-        console.log(event.target.id);
+
         $(".mainMenu").children('ul').slideUp('200');
         $http.get("/" + event.target.id).then(function(response){
             $scope.technology = response.data.value;

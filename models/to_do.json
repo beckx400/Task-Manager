@@ -9,7 +9,7 @@
   },
   {
     "techName" : "Angular.js",
-    "toDo": ["Read the documentation", "Understand Angular animate in place of jQuery", "Read the book Joel", "Build a functioning Angular app"]
+    "toDo": ["Read the documentation", "Understand Angular animate in place of jQuery", "Read the book Joel hooked us up with", "Build a functioning Angular app"]
   },
   {
     "techName" : "MongoDB",

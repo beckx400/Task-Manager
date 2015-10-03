@@ -6,9 +6,13 @@ body{
 h1, h2 {
     font-weight: 700;
 }
+h2{
+    font-size: 4.0vw;
+}
 h1{
-    margin-top: 5px;
+    margin: 5px;
     color: #2e2e2e;
+    font-size: 5.9vw;
 }
 h3{
     cursor: pointer;
@@ -25,11 +29,11 @@ form {
     padding: 5px 0;
 }
 label{
-    font-size:10px;
+    font-size: 1.8vmin;
     cursor: pointer;
 }
 label:hover{
-    font-size: 15px;
+    font-size: 2vw;
 }
 section{
     box-shadow: 10px 13px 19px 0px rgba(0,0,0,0.75);
@@ -64,10 +68,10 @@ input[type=submit]{
     margin: 0;
     cursor: pointer;
     opacity: 0.7;
-    font-size: 25px;
+    font-size: 4vmin;
 }
 .techLinks:hover{
-    font-size: 30px;
+    font-size: 5vmin;
     opacity: 1;
     font-weight: 400;
     color: #722929;
@@ -76,25 +80,25 @@ input[type=submit]{
     padding-bottom: 10px;
 }
 .menuSelect{
-    font-size:10px;
+    font-size: 1.5vw;
     color: #8A4A4A;
     transition: all 0.3s ease;
 }
 .menuSelect:hover{
-    font-size: 30px;
+    font-size: 4vw;
     padding: 2px;
     margin: 3px;
 }
 /*Task List*/
 .techName h3{
-    font-size: 40px;
+    font-size: 4vw;
     margin: 5px;
     padding: 5px;
 }
 .toDoItems{
     padding: 30px 10px;
     border-bottom: 1px solid lightgray;
-    font-size: 20px;
+    font-size: 2vw;
 }
 /*Modular classes for ng-class*/
 .strike{

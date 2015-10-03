@@ -11,7 +11,7 @@ var tech = require('../models/tech.json');
 var app = express();
 
 app.use(express.static(__dirname + "/public"));
-
+app.use(bodyParser.json());
 //Establish to-do list json location
 var fileLocation = path.join(__dirname, '../models/to_do.json');
 
@@ -36,8 +36,6 @@ app.get("/:techName?", function(req, res){
 
     var techName = req.params.techName;
 
-    console.log(techName);
-
     fs.readFile(fileLocation, function(err, data){
         var obj = JSON.parse(data);
 
@@ -55,15 +53,14 @@ app.get("/:techName?", function(req, res){
 //get JsonQueryString
 function getJsonQueryString(key, value){
     var queryString = '[' + key + '=' + value + ']';
-    console.log('Generate query string: ' + queryString);
+    //console.log('Generate query string: ' + queryString);
     return queryString;
 };
 
 //ADD IN A POST AND CONSOLE LOG WHATEVER COMES OUT
 app.post("/add", function(req, res){
-    console.log(req.body.task);
+    console.log(req);
 })
 
 
-app.use(bodyParser.json());
 module.exports = app;
