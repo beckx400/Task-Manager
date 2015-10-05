@@ -46,6 +46,11 @@
                             <input type="submit" value="Submit" ng-click="add(newTask)">
                         </form>
                     </div>
+                    <!--Create a minimize and expand button-->
+                    <div class="expand">
+                        <button class="minimizeButton" ng-show="miniShow" ng-click="minimizeTasks()">Minimize Tasks</button>
+                        <button class="expandButton" ng-show="expandShow" ng-click="expandTasks()">Expand Tasks</button>
+                    </div>
                     <!--List out to-do points-->
                     <div class="toDoList">
                         <ul>
