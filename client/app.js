@@ -30,6 +30,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
         $scope.newTask = null;
     }
 
+//jQuery section adding min/expand button functionality and slide animations
     $(document).ready(function(){
         $('.mainMenu').children('h3').on('click', function() {
             $(".mainMenu").children('ul').slideToggle('slow');
@@ -37,16 +38,14 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
         });
 
         $scope.minimizeTasks = function(){
-            console.log("clicked");
-            $('.toDoItems').addClass('minimize');
+            $('.toDoItems, label').addClass('minimize');
             $scope.miniShow = false;
             $scope.expandShow = true;
             console.log($scope.visible);
         }
 
         $scope.expandTasks = function (){
-            console.log('clicked expand');
-            $('.toDoItems').removeClass('minimize');
+            $('.toDoItems, label').removeClass('minimize');
             $scope.miniShow = true;
             $scope.expandShow = false;
         }

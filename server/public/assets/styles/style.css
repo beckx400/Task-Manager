@@ -29,11 +29,11 @@ form {
     padding: 5px 0;
 }
 label{
-    font-size: 1.8vmin;
+    font-size: 1vw;
     cursor: pointer;
 }
 label:hover{
-    font-size: 2vw;
+    font-size: 1.3vw;
 }
 section{
     box-shadow: 10px 13px 19px 0px rgba(0,0,0,0.75);
@@ -53,13 +53,20 @@ input{
     border-radius: 5px;
     font-family: 'Oswald', sans-serif;
 }
-input[type=submit]{
+
+input[type=submit], .minimizeButton{
+    background-color: #8A4A4A;
+}
+.expandButton{
+    background-color: #79A679;
+}
+input[type=submit], .minimizeButton, .expandButton{
     color: white;
     border-radius: 5px;
     border: 0;
-    width: 80px;
+    width: 100px;
     height:25px;
-    background-color: #8A4A4A;
+    cursor: pointer;
 }
 
 /*Header links*/
@@ -89,6 +96,7 @@ input[type=submit]{
     padding: 2px;
     margin: 3px;
 }
+
 /*Task List*/
 .techName h3{
     font-size: 4vw;
@@ -96,8 +104,11 @@ input[type=submit]{
     padding: 5px;
 }
 .toDoItems{
-    padding: 30px 10px;
+    padding: 15px 10px;
     border-bottom: 1px solid lightgray;
+    font-size: 2vw;
+}
+.toDoItems:hover{
     font-size: 2vw;
 }
 /*Modular classes for ng-class*/
@@ -113,10 +124,18 @@ input[type=submit]{
 .inProgress {
     background-color: #79A679;
     font-weight: 700;
+    color: white;
 }
-/*Minimize and maximize classes*/
+
+/*Minimize and expand classes*/
 .minimize {
-    padding: 3px !important;
-    font-size: 5px !important;
-    margin: 3px !important;
+    padding: 5px;
+    font-size: 7px;
+    margin: 3px;
 }
+.minimizeButton, .expandButton{
+    margin-top: 5px;
+    font-family: 'Oswald', sans-serif;;
+
+}
+
