@@ -8,6 +8,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
     $scope.miniShow = true;
     $scope.expandShow = false;
 
+    var newTaskList = [];
 //Get header links JSON
     $http.get("/tech").then(function(response){
         $scope.techList = response.data;
@@ -26,7 +27,13 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
 
 //Post new task to server
     $scope.add = function(newTask){
-        $http.post('/add', newTask);
+
+        var sendData = {toDo: newTask};
+
+        $http.post('/add', sendData);
+
+        newTaskList.push(newTask + "");
+
         $scope.newTask = null;
     }
 
