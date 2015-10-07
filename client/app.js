@@ -7,7 +7,9 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
     $scope.newTask;
     $scope.miniShow = true;
     $scope.expandShow = false;
+    $scope.toDoList = [];
 
+console.log($scope.toDoList);
     var newTaskList = [];
 //Get header links JSON
     $http.get("/tech").then(function(response){
@@ -21,18 +23,22 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
         $(".mainMenu").children('ul').slideUp('200');
         $http.get("/" + event.target.id).then(function(response){
             $scope.technology = response.data.value;
+            addJsonData(response.data.value);
             return response.data.value;
+
         })
     };
 
-//Post new task to server
+//Add JSON data to $scope.toDoList
+    function addJsonData(data){
+        $scope.toDoList = data.toDo;
+    }
+//Post new task to server and add newTask to $scope.toDoList
     $scope.add = function(newTask){
-
+        $scope.toDoList.push(newTask);
+        console.log($scope.toDoList);
         var sendData = {toDo: newTask};
-
         $http.post('/add', sendData);
-
-        newTaskList.push(newTask + "");
 
         $scope.newTask = null;
     }

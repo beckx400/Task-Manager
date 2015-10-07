@@ -54,19 +54,13 @@
                     <!--List out to-do points-->
                     <div class="toDoList">
                         <ul>
-                            <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in technology.toDo">{{toDo}}
+                            <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in toDoList">{{toDo}}
                                 <div class="buttonsContainer">
                                     <label><input type="checkbox" ng-model="progress">In Progress</label>
                                     <label><input type="checkbox" ng-model="complete.checked">Task Complete</label>
                                     <label><input type="checkbox" ng-model="remove.checked">Remove Task</label>
-                                    <!--<button class="edit" ng-click="taskEdit($event)">Edit Task</button>-->
                                 </div>
                             </li>
-                            <li class="toDoItems" ng-class="{'strike': new.complete.checked, 'remove': new.remove.checked, 'inProgress': new.progress}" ng-show="newTask">{{newTask}}
-                                <div class="buttonsContainer">
-                                    <label><input type="checkbox" ng-model="new.progress">In Progress</label>
-                                    <label><input type="checkbox" ng-model="new.complete.checked">Task Complete</label>
-                                    <label><input type="checkbox" ng-model="new.remove.checked">Remove Task</label>
                                 </div>
                             </li>
                         </ul>

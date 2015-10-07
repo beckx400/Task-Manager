@@ -59,7 +59,7 @@ function getJsonQueryString(key, value){
 
 //ADD IN A POST AND CONSOLE LOG WHATEVER COMES OUT
 app.post("/add", function(req, res){
-    console.log('Added task: ', req.body.name);
+    console.log('Added task: ', req.body.toDo);
 });
 
 
