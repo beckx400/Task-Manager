@@ -4,16 +4,26 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-var fs = require('fs');
-var jsonquery = require('json-query');
-var tech = require('../models/tech.json');
+var toDoRouter = require('./routes/toDoRouter');
+var mongoose = require('mongoose');
+
+//Initialize MongoDB
+var mongoURI = "mongodb://localhost:27017/toDoList";
+var MongoDB = mongoose.connect(mongoURI).connection;
+
+MongoDB.on("error", function(err){
+    console.log("MongoDB connection error:", err);
+});
+
+MongoDB.once('open', function(){
+    console.log("MongoDB is open!!")
+});
 
 var app = express();
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-//Establish to-do list json location
-var fileLocation = path.join(__dirname, '../models/to_do.json');
+app.use("/todo", toDoRouter);
 
 //Create server here
 var server = app.listen(process.env.PORT || 3000, function(){
@@ -25,42 +35,5 @@ var server = app.listen(process.env.PORT || 3000, function(){
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/public/views/index.html");
 });
-
-//get list of technologies for header
-app.get("/tech", function(req, res){
-    res.json(tech);
-});
-
-//get to-do list items
-app.get("/:techName?", function(req, res){
-
-    var techName = req.params.techName;
-
-    fs.readFile(fileLocation, function(err, data){
-        var obj = JSON.parse(data);
-
-        var query = getJsonQueryString("techName", techName);
-
-        if(techName){
-            var technology = jsonquery(query, {data: obj});
-            res.json(technology);
-        } else {
-            res.send(obj);
-        }
-    });
-});
-
-//get JsonQueryString
-function getJsonQueryString(key, value){
-    var queryString = '[' + key + '=' + value + ']';
-    //console.log('Generate query string: ' + queryString);
-    return queryString;
-};
-
-//ADD IN A POST AND CONSOLE LOG WHATEVER COMES OUT
-app.post("/add", function(req, res){
-    console.log('Added task: ', req.body.toDo);
-});
-
 
 module.exports = app;

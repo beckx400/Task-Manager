@@ -28,22 +28,26 @@
                     <ul class="mainMenu">
                         <h3 class="menuSelect">Technologies</h3>
                         <ul class="subMenu">
-                            <li ng-click="getTasks($event)" class="techLinks" ng-repeat="tech in techList" id='{{tech}}'>{{tech}}</li>
+                            <li ng-click="getTasks($event)" class="techLinks" ng-repeat="techName in techList" id='{{techName}}'>{{techName}}</li>
+                            <form class="addNewTech">
+                                <input class="new-tech" ng-model="newTech" placeholder="Add A Technology">
+                                <input type="submit" value="Submit" ng-click="add(newTech)">
+                            </form>
                         </ul>
                     </ul>
                 </div>
 
 
-                <div class="taskContainer" ng-show="technology.techName">
+                <div class="taskContainer" ng-show="technology">
                     <!--Tech name goes here-->
                     <div class="techName">
-                        <h3>{{technology.techName}}</h3>
+                        <h3>{{technology}}</h3>
                     </div>
 
                     <div class="newItem">
                         <form>
                             <input id="newText" type="text" placeholder="Add a task" ng-model="newTask">
-                            <input type="submit" value="Submit" ng-click="add(newTask)">
+                            <input type="submit" value="Submit" ng-click="updateTask(newTask)">
                         </form>
                     </div>
                     <!--Create a minimize and expand button-->
