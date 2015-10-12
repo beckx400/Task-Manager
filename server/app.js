@@ -8,7 +8,7 @@ var toDoRouter = require('./routes/toDoRouter');
 var mongoose = require('mongoose');
 
 //Initialize MongoDB
-var mongoURI = "mongodb://localhost:27017/toDoList";
+var mongoURI = "mongodb://localhost:27017/TESTtoDoList";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on("error", function(err){

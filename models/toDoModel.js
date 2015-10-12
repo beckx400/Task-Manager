@@ -6,9 +6,13 @@ var Schema = mongoose.Schema;
 
 var toDoSchema = new Schema({
     techName: String,
-    toDoItem: Array,
-    inProgress: Boolean,
-    taskComplete: Boolean
+    toDoItem: [
+        {
+            task: String,
+            inProgress: Boolean,
+            taskComplete: Boolean
+        }
+    ]
 });
 
 var ToDo = mongoose.model('ToDo', toDoSchema);

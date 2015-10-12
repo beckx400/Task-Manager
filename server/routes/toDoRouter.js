@@ -31,7 +31,7 @@ router.put("/tech/:techName?", function(req, res){
     ToDo.findOne({techName: techName}, function(err, task){
         if(err) throw err;
 
-        task.toDoItem = req.body.toDoItem;
+        task.toDoItem = req.body.toDoItem.task;
 
         task.save(function(err){
             if(err)
