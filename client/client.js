@@ -10,7 +10,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
     $scope.toDoList = [];
     $scope.techList = [];
 
-//Get header links JSON
+//Get header links from Database and load on page load
     function getTechnologies() {
         $scope.techList = [];
         $http.get("/todo/tech/").then(function (response) {
@@ -19,23 +19,9 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
             }
         });
     }
+    getTechnologies();
 
-//Get JSON data for stored to-do's
-    $scope.getTasks = function(event){
-        $(".mainMenu").children('ul').slideUp('200');
-        $http.get("/todo/tech/" + event.target.id).then(function(response){
-            $scope.technology = response.data.techName;
-            addJsonData(response.data);
-        })
-    };
-//Updates toDos depending on selected tech
-
-//Add JSON data to $scope.toDoList
-    function addJsonData(data){
-        $scope.toDoList = data.toDo;
-    }
-
-//Post new tech to server
+//Add a new technology to the Database
     $scope.add = function() {
         var newTech = {techName: $scope.newTech};
 
@@ -47,14 +33,49 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
             $scope.newTech = null;
             getTechnologies();
         });
+    };
+
+//Get specific database object based on techName
+    $scope.getTasks = function(event){
+        $http.get("/todo/tech/" + event.target.id).then(function(response){
+            $scope.technology = response.data.techName;
+            $scope.toDoList = response.data.toDoItem;
+        });
+        $(".taskContainer").slideDown("slow");
+        $(".mainMenu").children('ul').slideUp('200');
+        $scope.technology = "";
+    };
+
+//Add or delete a task on Database
+    function updateToDoList(){
+        var toDoItem = {toDoItem: $scope.toDoList};
+
+        $http({
+            method: "PUT",
+            url: "/todo/tech/" + $scope.technology,
+            data: toDoItem
+        })
     }
+
+//Push a new task to toDoList and update database
+    $scope.addTaskToList = function(){
+        $scope.toDoList.push($scope.newTask);
+        $scope.newTask = null;
+        updateToDoList();
+    };
+
+//Delete item from toDoList and update database
+    $scope.deleteTask = function(index){
+        $scope.toDoList.splice(index, 1);
+        updateToDoList();
+    };
 
 //jQuery section adding min/expand button functionality and slide animations
     $(document).ready(function(){
         $('.mainMenu').children('h3').on('click', function() {
             $(".mainMenu").children('.subMenu').slideToggle('slow');
+            $(".taskContainer").slideUp("slow")
             $("h1").slideUp('slow');
-            getTechnologies();
         });
 
         $scope.minimizeTasks = function(){
@@ -70,5 +91,6 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
             $scope.expandShow = false;
         }
     });
+
 }]);
 

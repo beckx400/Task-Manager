@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 
 var toDoSchema = new Schema({
     techName: String,
-    toDoItem: String,
+    toDoItem: Array,
     inProgress: Boolean,
     taskComplete: Boolean
 });

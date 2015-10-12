@@ -47,7 +47,7 @@
                     <div class="newItem">
                         <form>
                             <input id="newText" type="text" placeholder="Add a task" ng-model="newTask">
-                            <input type="submit" value="Submit" ng-click="updateTask(newTask)">
+                            <input type="submit" value="Submit" id="{{technology}}" ng-click="addTaskToList()">
                         </form>
                     </div>
                     <!--Create a minimize and expand button-->
@@ -58,11 +58,11 @@
                     <!--List out to-do points-->
                     <div class="toDoList">
                         <ul>
-                            <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in toDoList">{{toDo}}
+                            <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in toDoList track by $index">{{toDo}}
                                 <div class="buttonsContainer">
                                     <label><input type="checkbox" ng-model="progress">In Progress</label>
                                     <label><input type="checkbox" ng-model="complete.checked">Task Complete</label>
-                                    <label><input type="checkbox" ng-model="remove.checked">Remove Task</label>
+                                    <label><input type="checkbox" ng-change="deleteTask($index)" ng-model="remove.checked">Remove Task</label>
                                 </div>
                             </li>
                                 </div>

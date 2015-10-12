@@ -21,7 +21,11 @@ router.get("/tech/:techName?", function(req, res){
             res.json(ToDo);
         })
     }
-}).put(function(req, res){
+});
+
+//Route to update toDoItems
+router.put("/tech/:techName?", function(req, res){
+    console.log("HERE");
     var techName = req.params.techName;
 
     ToDo.findOne({techName: techName}, function(err, task){
@@ -32,8 +36,6 @@ router.get("/tech/:techName?", function(req, res){
         task.save(function(err){
             if(err)
                 res.send(err);
-
-            console.log("ToDo Saved");
         });
     });
 });
@@ -52,8 +54,4 @@ router.post("/addTech", function(req, res){
     })
 });
 
-//router.put("/add/:techName")
-router.put("/update/:techName", function(req,res){
-    db.collection.update
-});
 module.exports = router;
