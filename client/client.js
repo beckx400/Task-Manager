@@ -17,6 +17,7 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
             for (var i = 0; i < response.data.length; i++) {
                 $scope.techList.push(response.data[i].techName);
             }
+            $scope.techList.sort();
         });
     }
     getTechnologies();
