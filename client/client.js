@@ -71,6 +71,16 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
         updateToDoList();
     };
 
+    //TODO Progress and Complete status checks
+    //Would need to rework database schema into each array item is an object
+//Check status of inProgress Check
+    $scope.progressCheck = function(index){
+
+    };
+//Check status of Complete Check
+    $scope.completeCheck = function(index){
+
+    };
 //jQuery section adding min/expand button functionality and slide animations
     $(document).ready(function(){
         $('.mainMenu').children('h3').on('click', function() {

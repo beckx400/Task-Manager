@@ -60,8 +60,8 @@
                         <ul>
                             <li class="toDoItems" ng-class="{'strike': complete.checked, 'remove': remove.checked, 'inProgress': progress}" ng-repeat="toDo in toDoList track by $index">{{toDo}}
                                 <div class="buttonsContainer">
-                                    <label><input type="checkbox" ng-model="progress">In Progress</label>
-                                    <label><input type="checkbox" ng-model="complete.checked">Task Complete</label>
+                                    <label><input type="checkbox" ng-change="progressCheck($index)" ng-model="progress">In Progress</label>
+                                    <label><input type="checkbox" ng-change="completeCheck($index)" ng-model="complete.checked">Task Complete</label>
                                     <label><input type="checkbox" ng-change="deleteTask($index)" ng-model="remove.checked">Remove Task</label>
                                 </div>
                             </li>
