@@ -44,8 +44,8 @@ section{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 80%;
+    width: 90%;
+    height: 95%;
     text-align: center;
     overflow: scroll;
 }
@@ -76,6 +76,7 @@ input[type=submit], .minimizeButton, .expandButton{
     cursor: pointer;
     opacity: 0.7;
     font-size: 4vmin;
+    display: inline;
 }
 .techLinks:hover{
     font-size: 5vmin;
@@ -87,7 +88,7 @@ input[type=submit], .minimizeButton, .expandButton{
     padding-bottom: 10px;
 }
 .menuSelect{
-    font-size: 1.5vw;
+    font-size: 2vw;
     color: #8A4A4A;
     transition: all 0.3s ease;
 }
@@ -96,20 +97,32 @@ input[type=submit], .minimizeButton, .expandButton{
     padding: 2px;
     margin: 3px;
 }
+.removeButton{
+    background-color: darkred;
+    color: white;
+    border: none;
+    outline: none;
+    background-shadow: 1px 1px black;
+    position: relative;
+    top: -10px;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+}
 
 /*Task List*/
 .techName h3{
-    font-size: 4vw;
+    font-size: 4vh;
     margin: 5px;
     padding: 5px;
 }
 .toDoItems{
     padding: 15px 10px;
     border-bottom: 1px solid lightgray;
-    font-size: 2vw;
+    font-size: 3vh;
 }
 .toDoItems:hover{
-    font-size: 2vw;
+    font-size: 3vh;
 }
 /*Modular classes for ng-class*/
 .strike{

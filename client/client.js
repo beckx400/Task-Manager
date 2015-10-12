@@ -36,6 +36,19 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
         });
     };
 
+//Delete a technology form Database
+    $scope.removeTechnology = function(event){
+
+        var removeTech = event.target.id;
+
+        $http({
+            method: "DELETE",
+            url: 'todo/delete/' + removeTech
+        }).then(function(){
+            getTechnologies();
+        })
+    };
+
 //Get specific database object based on techName
     $scope.getTasks = function(event){
         $http.get("/todo/tech/" + event.target.id).then(function(response){
@@ -55,7 +68,9 @@ app.controller("MainController", ['$scope', '$http', function($scope, $http){
             method: "PUT",
             url: "/todo/tech/" + $scope.technology,
             data: toDoItem
-        })
+        }).then(function(response){
+            console.log('completed put');
+        });
     }
 
 //Push a new task to toDoList and update database

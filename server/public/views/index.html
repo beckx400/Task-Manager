@@ -28,7 +28,10 @@
                     <ul class="mainMenu">
                         <h3 class="menuSelect">Technologies</h3>
                         <ul class="subMenu">
-                            <li ng-click="getTasks($event)" class="techLinks" ng-repeat="techName in techList" id='{{techName}}'>{{techName}}</li>
+                            <div ng-repeat="techName in techList">
+                            <li ng-click="getTasks($event)" class="techLinks" id='{{techName}}'>{{techName}}</li>
+                                <span><button class="removeButton" ng-click="removeTechnology($event)" id="{{techName}}">-</button></span>
+                            </div>
                             <form class="addNewTech">
                                 <input class="new-tech" ng-model="newTech" placeholder="Add A Technology">
                                 <input type="submit" value="Submit" ng-click="add(newTech)">

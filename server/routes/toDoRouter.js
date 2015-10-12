@@ -23,11 +23,21 @@ router.get("/tech/:techName?", function(req, res){
     }
 });
 
+//Route to delete a complete technology
+router.delete("/delete/:id",function(req, res){
+    var idName = req.params.id;
+
+    ToDo.remove({techName: idName}, function(err, task){
+       if(err) throw err;
+        res.send(200);
+    });
+});
+
 //Route to update toDoItems
 router.put("/tech/:techName?", function(req, res){
-    console.log("HERE");
-    var techName = req.params.techName;
 
+    var techName = req.params.techName;
+    console.log("HERE", techName);
     ToDo.findOne({techName: techName}, function(err, task){
         if(err) throw err;
 
@@ -36,6 +46,7 @@ router.put("/tech/:techName?", function(req, res){
         task.save(function(err){
             if(err)
                 res.send(err);
+            res.send(200);
         });
     });
 });
@@ -49,7 +60,6 @@ router.post("/addTech", function(req, res){
             console.log("Post", err);
             res.send("Cannont post data");
         }
-        console.log("SAVED", toDo);
         res.send(200);
     })
 });
